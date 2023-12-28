@@ -1,4 +1,5 @@
 #include <cmath>
+#include <ostream>
 
 typedef struct vec3
 {
@@ -18,6 +19,7 @@ void divideVecs(vec3 vecA, vec3 vecB);
 float dotProduct(vec3 vecA, vec3 vecB);
 vec3 crossProduct(vec3 vecA, vec3 vecB);
 vec3 normalize(vec3 vector);
+void writeVec3(std::ostream &out, vec3 vector);
 
 vec3 newVec(float x, float y, float z){
     vec3 vector;
@@ -84,4 +86,8 @@ vec3 normalize(vec3 vector) {
     vec3 newVec = copyVec(vector);
     divideVec(newVec, length);
     return newVec;
+}
+
+void writeVec3(std::ostream &out, vec3 vector) {
+    out << vector.x << ' ' << vector.y << ' ' << vector.z;
 }
